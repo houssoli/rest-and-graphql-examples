@@ -3,18 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>se.ivankrizsan.restexample</groupId>
-    <artifactId>rest-example</artifactId>
+    <groupId>fr.soat.houssoli.restandgraphqlexamples</groupId>
+    <artifactId>rest-and-graphql-examples</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>rest-example</name>
-    <description>REST example with Spring Boot, Jersey and RXJava</description>
+    <name>rest-and-graphql-examples</name>
+    <description>GraphQL example based on a fork of a REST example with Spring Boot, Jersey and RXJava</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.0.BUILD-SNAPSHOT</version>
+        <version>1.5.2.RELEASE</version>
         <relativePath/>
     </parent>
 
