@@ -18,3 +18,14 @@ The articles for which this example program was developed can be found here:
 It should soon offer in addition a GraphQL implementation of the Rest-Example API like, based on :
 - [GraphQL API](http://graphql.org/)
 - [GraphQL JAVA](https://github.com/graphql-java/graphql-java.git)
+
+Running the example :
+
+At this point our application should work. Since we have used the spring-boot-starter-parent POM we have a useful run goal that we can use to start the application.
+Type `mvn spring-boot:help` to for more details.
+Type `mvn spring-boot:run` from the root project directory to start the application:
+
+`$ mvn spring-boot:run -Dserver.port=8080`
+
+The server should now be waiting requests at `localhost:8080`.
+To gracefully exit the application hit `ctrl-c`.

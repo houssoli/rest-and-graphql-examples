@@ -23,6 +23,7 @@ public abstract class Shape extends LongIdEntity {
     /* Instance variable(s): */
     @Column(name = "colour", nullable = false)
     protected String colour;
+
     @Column(name = "position", nullable = false)
     protected Point position;
 

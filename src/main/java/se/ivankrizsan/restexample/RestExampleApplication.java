@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableAsync;
+
+import com.oembedler.moon.graphql.boot.EnableGraphQLServer;
+
 import se.ivankrizsan.restexample.repositories.customisation.JpaRepositoryCustomisationsImpl;
 
 /**
@@ -13,6 +16,7 @@ import se.ivankrizsan.restexample.repositories.customisation.JpaRepositoryCustom
  * @author Ivan Krizsan
  */
 @SpringBootApplication
+@EnableGraphQLServer
 @EntityScan(basePackages = {"se.ivankrizsan.restexample.domain"})
 @EnableAsync
 @EnableJpaRepositories(basePackages = {"se.ivankrizsan.restexample.repositories"},
