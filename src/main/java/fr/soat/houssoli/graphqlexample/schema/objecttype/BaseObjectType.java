@@ -1,24 +1,17 @@
 package fr.soat.houssoli.graphqlexample.schema.objecttype;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
-
 import java.util.Objects;
 import java.util.StringJoiner;
 
-import com.oembedler.moon.graphql.engine.relay.RelayNode;
-import com.oembedler.moon.graphql.engine.stereotype.GraphQLDescription;
-import com.oembedler.moon.graphql.engine.stereotype.GraphQLID;
-import com.oembedler.moon.graphql.engine.stereotype.GraphQLIgnore;
-import com.oembedler.moon.graphql.engine.stereotype.GraphQLNonNull;
+import graphql.annotations.GraphQLDescription;
+import graphql.annotations.GraphQLNonNull;
 
 /**
  * Created by houssoli on 09/04/17.
  */
 public class BaseObjectType {
-    @GraphQLIgnore
     protected Long id;
 
-    @GraphQLID("id")
     @GraphQLNonNull
     @GraphQLDescription("object unique identifier")
     public Long getId(Long id) {
