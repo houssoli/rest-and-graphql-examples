@@ -13,8 +13,8 @@ import fr.soat.houssoli.graphqlexample.schema.GraphqlExampleSchema;
 /**
  * Created by houssoli on 09/04/17.
  */
-@GraphQLObject("Root")
-public class RootObjectType {
+@GraphQLObject("rootQuery")
+public class RootQueryObjectType {
 
     @GraphQLNonNull
     @GraphQLField("version")
@@ -23,5 +23,5 @@ public class RootObjectType {
 
     @Autowired
     @GraphQLIgnore
-    private GraphqlExampleSchema todoSchema;
+    private GraphqlExampleSchema schema;
 }
