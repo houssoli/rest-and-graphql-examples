@@ -3,7 +3,7 @@ package fr.soat.houssoli.graphqlexample.schema;
 import com.oembedler.moon.graphql.engine.stereotype.GraphQLSchema;
 import com.oembedler.moon.graphql.engine.stereotype.GraphQLSchemaQuery;
 
-import fr.soat.houssoli.graphqlexample.schema.objecttype.RootObjectType;
+import fr.soat.houssoli.graphqlexample.schema.objecttype.RootQueryObjectType;
 
 // TODO : implement GraphQL schema
 /**
@@ -13,6 +13,6 @@ import fr.soat.houssoli.graphqlexample.schema.objecttype.RootObjectType;
 public class GraphqlExampleSchema {
 
     @GraphQLSchemaQuery
-    private RootObjectType root;
+    private RootQueryObjectType rootQuery;
 
 }
