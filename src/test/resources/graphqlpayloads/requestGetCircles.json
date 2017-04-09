@@ -1,0 +1,10 @@
+{
+  circles {
+    colour,
+    position {
+      x,
+      y
+    },
+    radius
+  }
+}

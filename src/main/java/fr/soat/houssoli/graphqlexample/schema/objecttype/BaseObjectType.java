@@ -4,14 +4,18 @@ import java.util.Objects;
 import java.util.StringJoiner;
 
 import graphql.annotations.GraphQLDescription;
+import graphql.annotations.GraphQLField;
 import graphql.annotations.GraphQLNonNull;
+import graphql.annotations.GraphQLType;
 
 /**
  * Created by houssoli on 09/04/17.
  */
+@GraphQLType
 public class BaseObjectType {
     protected Long id;
 
+    @GraphQLField
     @GraphQLNonNull
     @GraphQLDescription("object unique identifier")
     public Long getId(Long id) {

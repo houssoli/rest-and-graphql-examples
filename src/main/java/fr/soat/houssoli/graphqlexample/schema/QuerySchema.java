@@ -6,10 +6,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import fr.soat.houssoli.graphqlexample.schema.fetcher.CircleDataFetcher;
+import fr.soat.houssoli.graphqlexample.schema.objecttype.CircleObjectType;
+import graphql.annotations.GraphQLDataFetcher;
 import graphql.annotations.GraphQLField;
 import graphql.annotations.GraphQLName;
 import graphql.schema.DataFetchingEnvironment;
-import se.ivankrizsan.restexample.domain.Circle;
 
 
 /**
@@ -23,7 +25,8 @@ public class QuerySchema {
 
     // TODO : implement GraphQLField "circles" to get all circles
     @GraphQLField
-    public List<Circle> circles(final DataFetchingEnvironment env) {
-        return circleSchema.allCircles();
+    @GraphQLDataFetcher(CircleDataFetcher.class)
+    public List<CircleObjectType> circles(final DataFetchingEnvironment env) {
+        return circleSchema.allCircles(env);
     }
 }
