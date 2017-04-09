@@ -17,5 +17,10 @@ public class JerseyConfig extends ResourceConfig {
         register(CircleResource.class);
         register(RectangleResource.class);
         register(DrawingResource.class);
+        register(GraphqlResource.class);
+        /*
+        // Reg Jackson for marshaling and parsing JSON
+        register(org.glassfish.jersey.jackson.JacksonFeature.class);
+        */
     }
 }

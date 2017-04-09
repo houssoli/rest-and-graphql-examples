@@ -17,13 +17,15 @@ import se.ivankrizsan.restexample.repositories.customisation.JpaRepositoryCustom
  */
 @SpringBootApplication
 @EnableGraphQLServer
-@EntityScan(basePackages = {"se.ivankrizsan.restexample.domain"})
+@EntityScan(basePackages = {"se.ivankrizsan.restexample.domain", "fr.soat.houssoli.graphqlexample.schema"})
 @EnableAsync
 @EnableJpaRepositories(basePackages = {"se.ivankrizsan.restexample.repositories"},
     repositoryBaseClass = JpaRepositoryCustomisationsImpl.class)
 public class RestExampleApplication {
 
     public static void main(String[] args) {
+        //System.setProperty("spring.devtools.restart.enabled", "false");
+
         SpringApplication.run(RestExampleApplication.class, args);
     }
 }
