@@ -9,7 +9,10 @@ import se.ivankrizsan.restexample.services.AbstractServiceBaseRxJava;
 /**
  * Created by houssoli on 09/04/17.
  */
-abstract class AbstractGraphQLRessourceBaseRxJava<E extends LongIdEntity> {
+public abstract class AbstractGraphQLRessourceBaseRxJava<E extends LongIdEntity> {
+    /* Constant(s): */
+
+    /* Instance variable(s): */
     protected AbstractServiceBaseRxJava<E> mService;
 
     public void setService(AbstractServiceBaseRxJava<E> service) {

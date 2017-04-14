@@ -4,6 +4,8 @@ import static fr.soat.houssoli.graphqlexample.schema.ExampleSchema.QUERY;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import fr.soat.houssoli.graphqlexample.schema.fetcher.CircleDataFetcher;
@@ -20,6 +22,7 @@ import graphql.schema.DataFetchingEnvironment;
 @Component
 @GraphQLName(QUERY)
 public class QuerySchema {
+    private static final Logger LOG = LoggerFactory.getLogger(QuerySchema.class);
 
     protected CircleSchema circleSchema;
 
@@ -27,6 +30,7 @@ public class QuerySchema {
     @GraphQLField
     @GraphQLDataFetcher(CircleDataFetcher.class)
     public List<CircleObjectType> circles(final DataFetchingEnvironment env) {
-        return circleSchema.allCircles(env);
+        LOG.debug("DataFetchingEnvironment env => {}", env);
+        return null;//circleSchema.allCircles(env);
     }
 }

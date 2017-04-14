@@ -1,8 +1,7 @@
 package se.ivankrizsan.restexample.restadapter;
 
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -13,16 +12,17 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
+import org.unitils.thirdparty.org.apache.commons.io.IOUtils;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import se.ivankrizsan.restexample.domain.Circle;
 import se.ivankrizsan.restexample.helpers.CircleEntityFactory;
 import se.ivankrizsan.restexample.helpers.EntityFactory;
 import se.ivankrizsan.restexample.helpers.JsonConverter;
 import se.ivankrizsan.restexample.repositories.CircleRepository;
 import se.ivankrizsan.restexample.repositories.customisation.JpaRepositoryCustomisationsImpl;
-
-import java.io.IOException;
-
-import static org.testng.Assert.*;
 
 /**
  * Created by lhoussou on 12/04/2017.
@@ -60,7 +60,7 @@ public class GraphqlResourceTest extends
     public void prepareBeforeTest() {
         mEntityFactory = new CircleEntityFactory();
         mEntityRepository = mCircleRepository;
-        mResourceUrlPath = CircleResource.PATH;
+        mResourceUrlPath = GraphqlResource.PATH;
 
         /////////////////////////
         // super.prepareBeforeTest();
@@ -91,6 +91,37 @@ public class GraphqlResourceTest extends
         final String theResponseJson = theResponse.prettyPrint();
         theResponse.
                 then().
+                statusCode(200).
+                contentType(ContentType.JSON);
+
+        final Object theRetrievedEntity = JsonConverter.jsonToObject(
+                theResponseJson, mExpectedEntity.getClass());
+        ReflectionAssert.assertLenientEquals(
+                "Retrieved entity should have the correct property values",
+                mExpectedEntity, theRetrievedEntity);
+    }
+
+
+    /**
+     * Tests retrieving all entities.
+     * All entities should be retrieved and the properties of the entity should have the
+     * same values as the entities persisted before the test.
+     *
+     * @throws IOException If error occurs. Indicates test failure.
+     */
+    @Test(timeOut = TEST_TIMEOUT)
+    public void testGetAllEntities() throws IOException {
+        final String inBody = IOUtils.toString(this.getClass().getResourceAsStream("/graphqlpayloads/requestGetCircles.json"));
+        final Response theResponse = RestAssured.
+                given().log().all().
+                contentType("application/json").
+                accept("application/json").
+                body(inBody).
+                when().
+                post(mResourceUrlPath);
+        final String theResponseJson = theResponse.prettyPrint();
+        theResponse.
+                then().log().all().
                 statusCode(200).
                 contentType(ContentType.JSON);
 

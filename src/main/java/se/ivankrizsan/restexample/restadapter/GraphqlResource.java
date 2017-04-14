@@ -1,7 +1,5 @@
 package se.ivankrizsan.restexample.restadapter;
 
-import java.util.HashMap;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -49,12 +47,6 @@ public class GraphqlResource {
         LOG.debug("HOUSSOU GraphQL query => " + query);
         return Observable.create(inSource -> {
             try {
-                // TODO : remove Hello world
-                if ("".equals("x")) {
-                    final HashMap<String, String> map = new HashMap<>();
-                    map.put("data", "Hello world");
-                }
-
                 // Execute
                 final ExecutionResult executionResult = graphql.execute(query);
 
@@ -67,6 +59,7 @@ public class GraphqlResource {
                 inSource.onNext(next);
                 inSource.onComplete();
             } catch (final Exception theException) {
+                LOG.error("Error while performing graphql query execution : " + theException.getMessage(), theException);
                 inSource.onError(theException);
             }
         }).subscribe(
