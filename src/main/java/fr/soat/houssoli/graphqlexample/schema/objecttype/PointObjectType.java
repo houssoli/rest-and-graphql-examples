@@ -17,7 +17,7 @@ public class PointObjectType {
     @GraphQLField
     @GraphQLNonNull
     @GraphQLDescription("X coordinate of this Point")
-    public int x;
+    private int x;
 
     /**
      * The Y coordinate of this <code>PointObjectType</code>.
@@ -26,7 +26,7 @@ public class PointObjectType {
     @GraphQLField
     @GraphQLNonNull
     @GraphQLDescription("Y coordinate of this Point")
-    public int y;
+    private int y;
 
     /**
      * Constructs and initializes a PointObjectType at the origin

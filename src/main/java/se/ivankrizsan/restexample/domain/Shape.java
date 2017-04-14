@@ -1,12 +1,11 @@
 package se.ivankrizsan.restexample.domain;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import java.awt.*;
+
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 /**
  * Abstract base class for shapes in a drawing.

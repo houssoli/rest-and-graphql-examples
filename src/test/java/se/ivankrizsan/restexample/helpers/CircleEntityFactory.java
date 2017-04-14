@@ -1,8 +1,8 @@
 package se.ivankrizsan.restexample.helpers;
 
 import se.ivankrizsan.restexample.domain.Circle;
+import se.ivankrizsan.restexample.domain.Point;
 
-import java.awt.*;
 
 /**
  * Entity factory that creates {@code Circle} instances.

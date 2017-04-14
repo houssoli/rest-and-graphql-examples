@@ -1,9 +1,9 @@
 package fr.soat.houssoli.graphqlexample.schema.fetcher;
 
-import java.awt.Point;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -12,6 +12,7 @@ import fr.soat.houssoli.graphqlexample.schema.AbstractGraphQLRessourceBaseRxJava
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 import se.ivankrizsan.restexample.domain.Circle;
+import se.ivankrizsan.restexample.domain.Point;
 import se.ivankrizsan.restexample.services.CircleService;
 
 /**
@@ -55,7 +56,7 @@ public class CircleDataFetcher extends AbstractGraphQLRessourceBaseRxJava<Circle
 
     @Override
     public Object get(DataFetchingEnvironment dataFetchingEnvironment) {
-        LOG.debug("dataFetchingEnvironment => {} | source => {}", dataFetchingEnvironment, dataFetchingEnvironment.getSource());
+        LOG.debug("dataFetchingEnvironment => {} | {}", dataFetchingEnvironment, ToStringBuilder.reflectionToString(dataFetchingEnvironment));
         return allCircles(dataFetchingEnvironment);
     }
 }

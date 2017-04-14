@@ -1,8 +1,8 @@
 package se.ivankrizsan.restexample.helpers;
 
+import se.ivankrizsan.restexample.domain.Point;
 import se.ivankrizsan.restexample.domain.Rectangle;
 
-import java.awt.*;
 
 /**
  * Entity factory that creates {@code Rectangle} instances.
