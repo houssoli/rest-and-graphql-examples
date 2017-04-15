@@ -11,9 +11,9 @@ The load-test report can be found in the target/gatling directory.
 
 The articles for which this example program was developed can be found here:
 - [rest-with-asynchronous-jersey-and-rxjava-part-1](ttps://www.ivankrizsan.se/2016/11/19/rest-with-asynchronous-jersey-and-rxjava-part-1/)
-- [rest-with-asynchronous-jersey-and-rxjava-part-1](https://www.ivankrizsan.se/2016/11/25/rest-with-asynchronous-jersey-and-rxjava-part-2/)
-- [rest-with-asynchronous-jersey-and-rxjava-part-1](https://www.ivankrizsan.se/2016/12/17/rest-with-asynchronous-jersey-and-rxjava-part-3/)
-- [rest-with-asynchronous-jersey-and-rxjava-part-1](https://www.ivankrizsan.se/2016/12/29/rest-with-asynchronous-jersey-and-rxjava-part-4/)
+- [rest-with-asynchronous-jersey-and-rxjava-part-2](https://www.ivankrizsan.se/2016/11/25/rest-with-asynchronous-jersey-and-rxjava-part-2/)
+- [rest-with-asynchronous-jersey-and-rxjava-part-3](https://www.ivankrizsan.se/2016/12/17/rest-with-asynchronous-jersey-and-rxjava-part-3/)
+- [rest-with-asynchronous-jersey-and-rxjava-part-4](https://www.ivankrizsan.se/2016/12/29/rest-with-asynchronous-jersey-and-rxjava-part-4/)
 
 It should soon offer in addition a GraphQL implementation of the Rest-Example API like, based on :
 - [GraphQL API](http://graphql.org/)
