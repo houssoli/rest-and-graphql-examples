@@ -5,7 +5,6 @@ import java.util.StringJoiner;
 
 import graphql.annotations.GraphQLDescription;
 import graphql.annotations.GraphQLField;
-import graphql.annotations.GraphQLNonNull;
 import graphql.annotations.GraphQLType;
 
 /**
@@ -13,11 +12,11 @@ import graphql.annotations.GraphQLType;
  */
 @GraphQLType
 public class BaseObjectType {
-    protected Long id;
 
     @GraphQLField
-    @GraphQLNonNull
     @GraphQLDescription("object unique identifier")
+    protected Long id;
+
     public Long getId(Long id) {
         return id;
     }

@@ -8,41 +8,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import fr.soat.houssoli.graphqlexample.schema.AbstractGraphQLRessourceBaseRxJava;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 import se.ivankrizsan.restexample.domain.Circle;
 import se.ivankrizsan.restexample.domain.Point;
-import se.ivankrizsan.restexample.services.CircleService;
+import se.ivankrizsan.restexample.restadapter.GraphqlResource;
+import se.ivankrizsan.restexample.restadapter.ServiceProvider;
+import se.ivankrizsan.restexample.services.AbstractServiceBaseRxJava;
 
 /**
  * Created by houssoli on 09/04/17.
  */
 @Component
-public class CircleDataFetcher extends AbstractGraphQLRessourceBaseRxJava<Circle> implements DataFetcher {
+public class CircleDataFetcher implements DataFetcher {
     private static final Logger LOG = LoggerFactory.getLogger(CircleDataFetcher.class);
-    /* Constant(s): */
-
-    /* Instance variable(s): */
-    protected CircleService mService;
 
     public CircleDataFetcher() {
         super();
-        setService(mService);
-    }
-
-    /**
-     * Constructor using the supplied service to manipulate entities.
-     *
-     * @param inService Service used to manipulate entities.
-     */
-    public CircleDataFetcher(final CircleService inService) {
-        setService(inService);
-    }
-
-    @Override
-    protected Circle[] entityListToArray(List<Circle> inEntityList) {
-        return new Circle[0];
     }
 
     protected List<Circle> allCircles(DataFetchingEnvironment env) {
@@ -55,8 +37,13 @@ public class CircleDataFetcher extends AbstractGraphQLRessourceBaseRxJava<Circle
     }
 
     @Override
-    public Object get(DataFetchingEnvironment dataFetchingEnvironment) {
-        LOG.debug("dataFetchingEnvironment => {} | {}", dataFetchingEnvironment, ToStringBuilder.reflectionToString(dataFetchingEnvironment));
-        return allCircles(dataFetchingEnvironment);
+    public Object get(DataFetchingEnvironment env) {
+        LOG.debug("dataFetchingEnvironment => {} | {}", env, ToStringBuilder.reflectionToString(env));
+        final GraphqlResource source = (GraphqlResource) env.getSource();
+        final ServiceProvider serviceProvider = (ServiceProvider) source.getServiceProvider();
+        final AbstractServiceBaseRxJava<Circle> circleService = serviceProvider.getCircleService();
+
+        return circleService.findAll();
+        //return allCircles(env);
     }
 }

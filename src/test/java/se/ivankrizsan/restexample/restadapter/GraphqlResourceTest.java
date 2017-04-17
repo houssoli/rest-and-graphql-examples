@@ -34,7 +34,7 @@ public class GraphqlResourceTest extends
         AbstractTestNGSpringContextTests {
     /* Constant(s): */
     protected static final int ENDPOINT_PORT = 8080;
-    protected static final long TEST_TIMEOUT = 30000;
+    protected static final long TEST_TIMEOUT = 300000;
 
     /* Instance variable(s): */
     @Autowired
